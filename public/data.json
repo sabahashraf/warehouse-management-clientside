@@ -1,6 +1,6 @@
 [{
     "name":"midcentury bed",
-    "img":"https://ibb.co/Hp6cNMV",
+    "img":"https://i.ibb.co/k6jL3rx/bed1.jpg",
     "description":"Inspired by its Mediterranean namesake, the Amalfi platform bed exudes a relaxed style that lends itself well to both dressed-up and dressed-down spaces.",
     "price":"600",
     "quantity":"20",
@@ -8,7 +8,7 @@
 },
 {
     "name":"wooden cabinet",
-    "img":"https://ibb.co/x2y2jbs",
+    "img":"https://i.ibb.co/WHQHyX3/cabinet1.jpg",
     "description":"The six drawer Henley Accent Chest will be a simple yet stylish finishing touch to your modern space. Admire its clean lines and simple design complemented by six large drawers with slim stainless-steel handles and matching base. ",
     "price":"800",
     "quantity":"15",
@@ -16,7 +16,7 @@
 },
 {
     "name":"accent chair",
-    "img":"https://ibb.co/HLZv10M",
+    "img":"https://i.ibb.co/xKZvPyc/chair1.jpg",
     "description":"This armchair brings boxy lines to your bedroom or living space. It's made with a solid pecan wood frame, and rests on solid wood legs in a warm beige finish. Wrapped in 100% polyester upholstery, its foam-filled, sinuous spring cushions give you just the right amount of support and prevent sagging over time.  ",
     "price":"700",
     "quantity":"15",
@@ -25,7 +25,7 @@
 },
 {
     "name":"velvet chair",
-    "img":"https://ibb.co/1q8Qd00",
+    "img":"https://i.ibb.co/nczmnww/chair2.jpg",
     "description":"This chair classic-style accent chair with pleated details is the perfect pick for a small space. Whether drawn up to your dining table or rounding out your living room with an extra seat, a small side chair like this is a great option wherever you need it. Made with premium velvet fabric, comfortable for skin touch.  ",
     "price":"700",
     "quantity":"18",
@@ -35,7 +35,7 @@
 {
 
     "name":"upholstered bed",
-    "img":"https://ibb.co/p0nt0VD",
+    "img":"https://i.ibb.co/xC3pC9v/bed2.jpg",
     "description":"This platform bed features clean lines and a wingback design that grounds your bedroom with a modern look. The engineered wood frame is built on tapered legs with a sleek black finish, and it's upholstered in linen cloth with the hue of your choice. Compatible with an adjustable base, this bed works best with a box spring and standard-height mattress  ",
     "price":"900",
     "quantity":"10",
@@ -44,7 +44,7 @@
 },
 {
     "name":"Loveseat",
-    "img":"https://ibb.co/YPSzFsc",
+    "img":"https://i.ibb.co/L0LP6RH/sofa1.jpg",
     "description":"This velvet loveseat is just right for smaller living rooms or grouped with a larger sofa to create a cozy conversation area. Its frame is engineered wood and its seat is foam supported by sinuous springs. Gold-finished iron legs, square arms, and a low profile give it a glam modern look.   ",
     "price":"850",
     "quantity":"12",
