@@ -8,7 +8,10 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/home">
-            Furniture Outlet
+            <img
+              src="https://i.ibb.co/JpZBRVV/logo-removebg-preview-1.png"
+              alt="logo"
+            ></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -17,6 +20,15 @@ const Header = () => {
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
             <Nav>
+              <Nav.Link as={Link} to="/manage">
+                Manage Items
+              </Nav.Link>
+              <Nav.Link as={Link} to="/addItem">
+                Add Item
+              </Nav.Link>
+              <Nav.Link as={Link} to="/myItems">
+                My Items
+              </Nav.Link>
               <Nav.Link as={Link} to="/signup">
                 Sign Up
               </Nav.Link>

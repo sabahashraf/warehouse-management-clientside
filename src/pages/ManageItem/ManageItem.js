@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Pagetitle from "../shared pages/PageTitle/Pagetitle";
 
 const ManageItem = () => {
-  const navigate = useNavigate();
+  <Pagetitle title="Manage"></Pagetitle>;
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/product")
@@ -26,6 +27,7 @@ const ManageItem = () => {
         });
     }
   };
+  //   const navigate = useNavigate();
   return (
     <div className="container">
       <h2 className="text-center my-5">This is manage page</h2>
@@ -55,9 +57,11 @@ const ManageItem = () => {
           </tbody>
         ))}
       </table>
-      <button onClick={navigate("/addItem")} className="btn btn-primary ">
-        Add New Item
-      </button>
+      <div className="text-center">
+        <Link to="/addItem">
+          <button className="btn btn-primary ">Add New Item</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,9 @@ import Footer from "./pages/shared pages/Footer/Footer";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import ManageItem from "./pages/ManageItem/ManageItem";
 import AddItem from "./pages/AddItem/AddItem";
+import { ToastContainer } from "react-bootstrap";
+import "react-toastify/dist/ReactToastify.css";
+import MyItems from "./pages/MyItems/MyItems";
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
         ></Route>
         <Route path="/manage" element={<ManageItem></ManageItem>}></Route>
         <Route path="/addItem" element={<AddItem></AddItem>}></Route>
+        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </div>
   );

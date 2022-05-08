@@ -1,0 +1,10 @@
+form input, textarea{
+    padding-top:5px;
+    margin-bottom:5px;
+    border-radius: 3px;
+}
+input[type=submit]{
+    width:50%;
+    margin:0 auto;
+    margin-top:10px;
+}

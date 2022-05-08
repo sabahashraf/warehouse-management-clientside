@@ -16,7 +16,7 @@ const Inventory = () => {
       <h2 className="text-center my-5">Inventory</h2>
 
       <div className=" row">
-        {products.map((product) => (
+        {products.slice(0, 6).map((product) => (
           <Product key={product._id} product={product}></Product>
         ))}
       </div>
