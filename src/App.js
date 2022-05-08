@@ -10,6 +10,8 @@ import AddItem from "./pages/AddItem/AddItem";
 import { ToastContainer } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import MyItems from "./pages/MyItems/MyItems";
+import Blogs from "./pages/Blogs/Blogs";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -25,7 +27,10 @@ function App() {
         <Route path="/manage" element={<ManageItem></ManageItem>}></Route>
         <Route path="/addItem" element={<AddItem></AddItem>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+
       <ToastContainer />
       <Footer></Footer>
     </div>
