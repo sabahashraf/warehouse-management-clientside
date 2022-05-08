@@ -49,7 +49,50 @@
     "price":"850",
     "quantity":"12",
     "supplier":"Etta Avenue"
+},
+{
+    "name":"fabric sofa",
+    "img":"https://i.ibb.co/Ntq8dB9/sofa2.jpg",
+    "description":"This velvet loveseat is just right for smaller living rooms or grouped with a larger sofa to create a cozy conversation area. Its frame is engineered wood and its seat is foam supported by sinuous springs. Gold-finished iron legs, square arms, and a low profile give it a glam modern look.   ",
+    "price":"900",
+    "quantity":"12",
+    "supplier":"Etta Avenue"
+},
+{
+    "name":"fabric sofa2",
+    "img":"https://i.ibb.co/SwXFXxW/sofa3.jpg",
+    "description":"This velvet loveseat is just right for smaller living rooms or grouped with a larger sofa to create a cozy conversation area. Its frame is engineered wood and its seat is foam supported by sinuous springs. Gold-finished iron legs, square arms, and a low profile give it a glam modern look.   ",
+    "price":"900",
+    "quantity":"12",
+    "supplier":"Etta Avenue"
+},
+{
+    "name":"arm chair",
+    "img":"https://i.ibb.co/xJ93DPb/saccentchair2.jpg",
+    "description":"This chair classic-style accent chair with pleated details is the perfect pick for a small space. Whether drawn up to your dining table or rounding out your living room with an extra seat, a small side chair like this is a great option wherever you need it. Made with premium velvet fabric, comfortable for skin touch.  ",
+    "price":"650",
+    "quantity":"18",
+    "supplier":"Mercury Row"
+
+},
+{
+    "name":"bedside",
+    "img":"https://i.ibb.co/Tmz5k4F/sidetable1.jpg",
+    "description":"Inspired by its Mediterranean namesake, the Amalfi platform bed exudes a relaxed style that lends itself well to both dressed-up and dressed-down spaces.",
+    "price":"250",
+    "quantity":"20",
+    "supplier":"Ashley"
+},
+{
+    "name":"sideboard",
+    "img":"https://i.ibb.co/3yVkrVv/sideboard.jpg",
+    "description":"The six drawer Henley Accent Chest will be a simple yet stylish finishing touch to your modern space. Admire its clean lines and simple design complemented by six large drawers with slim stainless-steel handles and matching base. ",
+    "price":"800",
+    "quantity":"15",
+    "supplier":"Henley"
 }
+
+
 
 
 ]

@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./pages/shared pages/Header/Header";
 import Footer from "./pages/shared pages/Footer/Footer";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import ManageItem from "./pages/ManageItem/ManageItem";
+import AddItem from "./pages/AddItem/AddItem";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           path="/inventory/:inventoryId"
           element={<ProductDetail></ProductDetail>}
         ></Route>
+        <Route path="/manage" element={<ManageItem></ManageItem>}></Route>
+        <Route path="/addItem" element={<AddItem></AddItem>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
