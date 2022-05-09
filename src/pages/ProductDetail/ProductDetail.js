@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./productDetail.css";
 
 const ProductDetail = () => {
@@ -64,7 +64,7 @@ const ProductDetail = () => {
       });
   };
   return (
-    <div className="container my-5">
+    <div className="container my-5 min-vh-100">
       <div class="row g-0">
         <div class="col-md-4">
           <img src={product.img} className="img-fluid rounded my-5" alt="..." />
@@ -112,6 +112,13 @@ const ProductDetail = () => {
                 value="Add"
               />
             </form>
+            <div className="container text-center my-5">
+              <Link to="/manage">
+                <button className="btn btn-background ">
+                  Manage Inventory
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

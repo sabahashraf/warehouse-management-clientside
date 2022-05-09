@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
@@ -39,7 +40,8 @@ const MyItems = () => {
   };
 
   return (
-    <div className="container ">
+    <div className="container min-vh-100  ">
+      <h2 className="text-center my-5">Your Inventory</h2>
       {items.map((item) => (
         <ItemDetail
           key={item._id}
@@ -47,6 +49,9 @@ const MyItems = () => {
           handleDelete={handleDelete}
         ></ItemDetail>
       ))}
+      <Link to="/addItem">
+        <button className="btn btn-background my-5 ">Add more item </button>
+      </Link>
     </div>
   );
 };

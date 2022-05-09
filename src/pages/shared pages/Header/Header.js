@@ -39,16 +39,25 @@ const Header = () => {
                   </Nav.Link>
                 </>
               )}
-              <Nav.Link as={Link} to="/signup">
-                Sign Up
-              </Nav.Link>
-              {user && (
+
+              {user ? (
                 <button
                   onClick={() => signOut(auth)}
-                  className="btn btn-primary"
+                  className="btn"
+                  style={{ backgroundColor: "transparent", color: "white" }}
                 >
                   Sign out
                 </button>
+              ) : (
+                <>
+                  <Nav.Link as={Link} to="/signup">
+                    Sign Up
+                  </Nav.Link>
+
+                  <Nav.Link as={Link} to="/login">
+                    Login
+                  </Nav.Link>
+                </>
               )}
             </Nav>
           </Navbar.Collapse>

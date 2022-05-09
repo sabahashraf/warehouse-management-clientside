@@ -2,7 +2,7 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <section className="container about w-75 mx-auto my-5">
+    <section className="container about w-75 mx-auto min-vh-100 my-5">
       <h2 className="mx-auto my-5 text-center">Q & A</h2>
       <h3>Difference between javascript and nodejs?</h3>
       <p className="fs-5">

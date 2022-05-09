@@ -19,7 +19,7 @@ const GoogleLogin = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="mt-3 mb-5 text-center">
+    <div className="container mt-3 mb-5 text-center">
       <div className="d-flex align-items-center justify-content-center mb-3">
         <div className="horizontal"></div>
         <div className="mx-2">Or</div>

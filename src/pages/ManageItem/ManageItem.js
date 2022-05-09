@@ -30,7 +30,7 @@ const ManageItem = () => {
   //   const navigate = useNavigate();
   return (
     <div className="container">
-      <h2 className="text-center my-5">This is manage page</h2>
+      <h2 className="text-center my-5">All available Items</h2>
       <table className="table w-75 mx-auto">
         <thead>
           <tr>
@@ -47,7 +47,7 @@ const ManageItem = () => {
               <td>{product.quantity}</td>
               <td>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-background"
                   onClick={() => handleDelete(product._id)}
                 >
                   Delete
@@ -59,7 +59,7 @@ const ManageItem = () => {
       </table>
       <div className="text-center">
         <Link to="/addItem">
-          <button className="btn btn-primary ">Add New Item</button>
+          <button className="btn btn-background my-5 ">Add New Item</button>
         </Link>
       </div>
     </div>

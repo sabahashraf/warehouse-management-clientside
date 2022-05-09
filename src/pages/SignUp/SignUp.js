@@ -69,72 +69,88 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container min-vh-100">
-      <form onSubmit={handleSignUp}>
-        <input
-          type="text"
-          name="name"
-          onBlur={handleNameOnBlur}
-          placeholder="Name"
-          id=""
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onBlur={handleEmailOnBlur}
-          id=""
-          required
-        />
-        {errors?.email && (
+    <div className="container my-5  w-lg-50 w-50 mx-auto min-vh-100">
+      <div className="w-md-75  w-lg-75">
+        <h2 className="text-center my-5">Sign up</h2>
+        <form className=" d-flex flex-column" onSubmit={handleSignUp}>
+          <input
+            className="form-input"
+            type="text"
+            name="name"
+            onBlur={handleNameOnBlur}
+            placeholder="Name"
+            id=""
+            required
+          />
+          <input
+            type="email"
+            className="form-input"
+            name="email"
+            placeholder="Email"
+            onBlur={handleEmailOnBlur}
+            id=""
+            required
+          />
+          {errors?.email && (
+            <p className="text-danger text-center">
+              <small>{errors.email}</small>
+            </p>
+          )}
+          <input
+            type="password"
+            name="password"
+            className="form-input"
+            onBlur={handlePasswordOnBlur}
+            placeholder="Password"
+            id=""
+            required
+          />
+          {errors?.password && (
+            <p className="text-danger text-center">
+              <small>{errors.password}</small>
+            </p>
+          )}
+          <input
+            type="password"
+            className="form-input"
+            onBlur={handleConfirmPasswordOnBlur}
+            name="confirm-password"
+            placeholder="Confirm Password"
+            id=""
+            required
+          />
+          <div className="check-container">
+            <input
+              className="form-input"
+              type="checkbox"
+              name="checkbox"
+              id=""
+            />
+            <label className="ms-2" htmlFor="checkbox">
+              <small>Accept terms and conditions</small>
+            </label>
+          </div>
+          <input
+            className="btn btn-background mb-3"
+            type="submit"
+            value="Sign Up"
+          ></input>
+        </form>
+        {error && (
           <p className="text-danger text-center">
-            <small>{errors.email}</small>
+            <small>{error.message}</small>
           </p>
         )}
-        <input
-          type="password"
-          name="password"
-          onBlur={handlePasswordOnBlur}
-          placeholder="Password"
-          id=""
-          required
-        />
-        {errors?.password && (
-          <p className="text-danger text-center">
-            <small>{errors.password}</small>
-          </p>
-        )}
-        <input
-          type="password"
-          onBlur={handleConfirmPasswordOnBlur}
-          name="confirm-password"
-          placeholder="Confirm Password"
-          id=""
-          required
-        />
-        <div className="check-container">
-          <input type="checkbox" name="checkbox" id="" />
-          <label className="ms-2" htmlFor="checkbox">
-            <small>Accept terms and conditions</small>
-          </label>
-        </div>
-        <input type="submit" value="Sign Up"></input>
-      </form>
-      {error && (
-        <p className="text-danger text-center">
-          <small>{error.message}</small>
+        <p className="text-center">
+          <small>
+            Already registered?&nbsp;
+            <Link className="text-decoration-none" to="/login">
+              Login here!
+            </Link>
+          </small>
         </p>
-      )}
-      <p className="text-center">
-        <small>
-          Already registered?&nbsp;
-          <Link className="text-decoration-none" to="/login">
-            Login here!
-          </Link>
-        </small>
-      </p>
-      <GoogleLogin></GoogleLogin>
+        <GoogleLogin></GoogleLogin>
+      </div>
     </div>
   );
 };

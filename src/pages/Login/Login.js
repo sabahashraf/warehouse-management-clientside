@@ -4,7 +4,7 @@ import GoogleLogin from "../shared pages/GoogleLogin/GoogleLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../shared pages/Loading/Loading";
 import axios from "axios";
@@ -73,60 +73,70 @@ const Login = () => {
     }
   };
   return (
-    <div className="container min-vh-100">
-      <form onSubmit={handleLogin}>
-        <input
-          onBlur={handleEmailOnBlur}
-          type="email"
-          name="email"
-          ref={emailRef}
-          placeholder="email"
-          id=""
-          required
-        />
-        {errors?.email && (
+    <div className="container my-5 w-md-50 w-lg-50 w-50 mx-auto min-vh-100">
+      <ToastContainer></ToastContainer>
+      <div className="w-md-75  w-lg-75">
+        <h2 className="text-center my-5">Please Login</h2>
+        <form className=" d-flex flex-column" onSubmit={handleLogin}>
+          <input
+            className="form-control"
+            onBlur={handleEmailOnBlur}
+            type="email"
+            name="email"
+            ref={emailRef}
+            placeholder="email"
+            id=""
+            required
+          />
+          {errors?.email && (
+            <p className="text-danger text-center">
+              <small>{errors.email}</small>
+            </p>
+          )}
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            ref={passwordRef}
+            placeholder="password"
+            onBlur={handlePasswordOnBlur}
+            id=""
+            required
+          />
+          {errors?.password && (
+            <p className="text-danger text-center">
+              <small>{errors.password}</small>
+            </p>
+          )}
+          <input
+            className="btn btn-background mb-3"
+            type="submit"
+            value="Login"
+          />
+        </form>
+        {error && (
           <p className="text-danger text-center">
-            <small>{errors.email}</small>
+            <small>{error.message}</small>
           </p>
         )}
-        <input
-          type="password"
-          name="password"
-          ref={passwordRef}
-          placeholder="password"
-          onBlur={handlePasswordOnBlur}
-          id=""
-          required
-        />
-        {errors?.password && (
-          <p className="text-danger text-center">
-            <small>{errors.password}</small>
-          </p>
-        )}
-        <input type="submit" value="Login" />
-      </form>
-      {error && (
-        <p className="text-danger text-center">
-          <small>{error.message}</small>
+        <p className="text-center">
+          <small>
+            New to Furniture warehouse!&nbsp;please &nbsp;
+            <Link to="/signup" className="text-decoration-none">
+              register
+            </Link>
+          </small>
         </p>
-      )}
-      <p className="text-center">
-        <small>
-          New to Furniture warehouse!&nbsp;please &nbsp;
-          <Link to="/signup" className="text-decoration-none">
-            register
-          </Link>
-        </small>
-      </p>
-      <div className="text-center">
-        <button
-          onClick={resetPassword}
-          className="btn btn-link text-decoration-none"
-        >
-          Forget password?
-        </button>
+        <div className="text-center">
+          <button
+            onClick={resetPassword}
+            className="btn btn-link text-decoration-none"
+          >
+            Forget password?
+          </button>
+        </div>
+        <GoogleLogin></GoogleLogin>
       </div>
-      <GoogleLogin></GoogleLogin>
     </div>
   );
 };

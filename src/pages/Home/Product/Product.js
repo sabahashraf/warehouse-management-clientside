@@ -27,7 +27,7 @@ const Product = ({ product }) => {
           </p>
           <button
             onClick={() => navigateToproductDetail(_id)}
-            className="btn btn-primary"
+            className="btn btn-background"
           >
             Update
           </button>
