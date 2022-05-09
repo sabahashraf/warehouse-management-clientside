@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./productDetail.css";
 
 const ProductDetail = () => {
   const { inventoryId } = useParams();
@@ -10,7 +11,7 @@ const ProductDetail = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, []);
+  }, [product]);
 
   const handleDelivered = (product) => {
     let newQuantity = parseInt(product.quantity) - 1;
@@ -18,8 +19,7 @@ const ProductDetail = () => {
     const { quantity, ...rest } = product;
 
     const newProduct = { quantity: newQuantity, ...rest };
-
-    //setQuantity(newProduct.quantity);
+    //setProduct(newProduct);
 
     const url = `http://localhost:5000/product/${inventoryId}`;
     fetch(url, {
@@ -31,8 +31,8 @@ const ProductDetail = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProduct(data);
+        //
       });
   };
   const handleRestock = (event) => {
@@ -40,10 +40,11 @@ const ProductDetail = () => {
 
     let Q = parseInt(event.target.quantity.value);
     let P = parseInt(product.quantity);
-    let result = parseInt(Q + P);
+    let add = parseInt(Q + P);
 
     const { quantity, ...rest } = product;
-    const newProduct = { quantity: result, ...rest };
+    const newProduct = { quantity: add, ...rest };
+    //setProduct(newProduct);
 
     //setQuantity(newProduct.quantity);
 
@@ -57,25 +58,63 @@ const ProductDetail = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProduct(data);
+
         event.target.reset();
       });
   };
   return (
-    <div>
-      <h2>this inventory detail:{product.name}</h2>
-      <p>{product.quantity}</p>
-      <button onClick={() => handleDelivered(product)}>delivered</button>
-      <form onSubmit={handleRestock}>
-        <input
-          type="text"
-          name="quantity"
-          placeholder="restock the item"
-          id=""
-        />
-        <input type="submit" value="add" />
-      </form>
+    <div className="container my-5">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src={product.img} className="img-fluid rounded my-5" alt="..." />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h4 className="card-title">{product.name}</h4>
+
+            <p className="card-text">
+              <span className="fs-6">Product id:</span>
+              {product._id}
+            </p>
+            <p className="card-text">
+              <span className="fs-6">Supplied by:</span>
+              {product.supplier}
+            </p>
+
+            <p className="card-text">{product.description}</p>
+            <p className="card-text">
+              <span className="fs-6">Price:</span>
+              {product.price}
+            </p>
+            <p className="card-text ">
+              <span className="fs-6">Quantity:</span>
+              {product.quantity}
+            </p>
+            <button
+              className="btn btn-background"
+              onClick={() => handleDelivered(product)}
+            >
+              Delivered
+            </button>
+            <form className="my-3" onSubmit={handleRestock}>
+              <input
+                className="form-control w-25"
+                type="text"
+                name="quantity"
+                placeholder="restock the item"
+                id=""
+              />
+              <input
+                className="btn btn-background"
+                style={{ width: "120px" }}
+                type="submit"
+                value="Add"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

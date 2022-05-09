@@ -1,9 +1,12 @@
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import "./AddItem.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const AddItem = () => {
+  const [user] = useAuthState(auth);
   const handlesubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -12,7 +15,16 @@ const AddItem = () => {
     const quantity = event.target.quantity.value;
     const img = event.target.img.value;
     const supplier = event.target.supplier.value;
-    const product = { name, description, price, quantity, img, supplier };
+    const email = user.email;
+    const product = {
+      name,
+      description,
+      price,
+      quantity,
+      img,
+      supplier,
+      email,
+    };
 
     const url = "http://localhost:5000/product";
     fetch(url, {
@@ -48,6 +60,7 @@ const AddItem = () => {
         <input type="text" name="quantity" placeholder="quantity" required />
         <input className="bg-primary" type="submit" value="Add an item" />
       </form>
+      <ToastContainer />
     </div>
   );
 };
