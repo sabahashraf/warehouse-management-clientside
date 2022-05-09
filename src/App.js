@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/shared pages/RequireAuth/RequireAuth";
+import About from "./pages/Home/Home/About/About";
 
 function App() {
   return (
@@ -56,8 +57,10 @@ function App() {
           }
         ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 

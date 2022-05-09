@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../shared pages/GoogleLogin/GoogleLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -7,15 +7,18 @@ import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../shared pages/Loading/Loading";
+import axios from "axios";
 
 const Login = () => {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-  const [userinfo, setUserinfo] = useState({
+  /*   const [userinfo, setUserinfo] = useState({
     email: "",
     password: "",
-  });
+  }); */
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -25,7 +28,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     if (user) {
-      navigate(from);
+      // navigate(from);
     }
   }, [user]);
   if (loading) {
@@ -33,30 +36,37 @@ const Login = () => {
   }
   const handleEmailOnBlur = (event) => {
     const emailRegex = /\S+@\S+\.\S+/;
-    const validEmail = emailRegex.test(event.target.value);
+    const validEmail = emailRegex.test(emailRef.current.value);
     if (validEmail) {
-      setUserinfo({ ...userinfo, email: event.target.value });
+      /*   setUserinfo({ ...userinfo, email: event.target.value }); */
       setErrors({ ...errors, email: "" });
     } else {
-      setUserinfo({ ...userinfo, email: "" });
+      //setUserinfo({ ...userinfo, email: "" });
       setErrors({ ...errors, email: "invalid email" });
     }
   };
   const handlePasswordOnBlur = (event) => {
     const passwordRegex = /.{6,}/;
-    const validPassword = passwordRegex.test(event.target.value);
+    const validPassword = passwordRegex.test(passwordRef.current.value);
     if (validPassword) {
-      setUserinfo({ ...userinfo, password: event.target.value });
+      /* setUserinfo({ ...userinfo, password: event.target.value }); */
       setErrors({ ...errors, password: "" });
     }
   };
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(userinfo.email, userinfo.password);
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await signInWithEmailAndPassword(email, password);
+
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
   const resetPassword = async () => {
-    if (userinfo.email) {
-      await sendPasswordResetEmail(userinfo.email);
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
       toast("sent email");
     } else {
       toast("please enter your email address");
@@ -69,6 +79,7 @@ const Login = () => {
           onBlur={handleEmailOnBlur}
           type="email"
           name="email"
+          ref={emailRef}
           placeholder="email"
           id=""
           required
@@ -81,6 +92,7 @@ const Login = () => {
         <input
           type="password"
           name="password"
+          ref={passwordRef}
           placeholder="password"
           onBlur={handlePasswordOnBlur}
           id=""
